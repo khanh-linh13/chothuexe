@@ -1,0 +1,382 @@
+body{
+
+padding-top: 80px;
+}
+/* Tổng quan header */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Để đảm bảo header hiển thị trên các phần tử khác */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s ease; /* Tạo hiệu ứng mượt */
+   
+}
+/* Khi cuộn, header sẽ trở nên mờ */
+.header.scrolled {
+    background-color: rgba(255, 255, 255, 0.8); /* Màu nền mờ */
+}
+
+/* Logo */
+.header .logo img {
+    position: relative;
+    left: 100px;
+    height: 60px;
+    width: auto;
+}
+
+/* Menu chính */
+.header .menu {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+    text-align: center;
+    position: relative;
+    right: 50px;
+    z-index: 10;
+    font-family: Arial, sans-serif;
+    font-size: 19px;
+    padding-top: 20px; /* Điều chỉnh padding để căn giữa theo chiều dọc */
+}
+
+.header .menu li {
+    position: relative;
+    text-align: left;
+}
+
+.header .menu a {
+    text-decoration: none;
+    color: #fc4040;
+    font-weight: bold;
+    padding: 10px;
+    transition: color 0.3s;
+}
+
+.header .menu a:hover {
+    color: #e0a80d; /* Màu vàng tương tự logo */
+}
+
+/* Submenu (menu con) */
+.header .sub-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    list-style-type: none;
+    padding: 10px 0;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 250px;
+    white-space: nowrap; /* ngan ngat dong trong the li*/
+    font-size: 15px;
+}
+
+.header .sub-menu li {
+    padding: 10px 20px;
+}
+
+.header .sub-menu a {
+    color: #333;
+    font-weight: normal;
+}
+
+.header .sub-menu a:hover {
+    color: #e0a80d; /* Màu vàng */
+}
+
+/* Hiển thị submenu khi hover */
+.header .menu li:hover .sub-menu {
+    display: block;
+}
+
+/* Điều chỉnh khoảng cách giữa các menu items */
+.header .menu li {
+    padding: 10px;
+}
+.banner {
+    position: relative;
+    width: 100%;
+    display: inline-block;
+}
+
+.banner img {
+    width: 100%; /* Thay đổi kích thước hình ảnh theo ý muốn */
+    height: auto;
+    filter: brightness(50%); /* Giảm độ sáng của hình ảnh */
+}
+
+
+
+.text-overlay {
+    position: absolute;
+    top: 50%; /* Vị trí chữ */
+    left: 50%; /* Vị trí chữ */
+    transform: translate(-50%, -50%); /* Đưa chữ vào giữa */
+    color: white; /* Màu chữ */
+    z-index: 2; /* Đảm bảo chữ nằm trên hình ảnh */
+    text-align: center; /* Căn giữa chữ */
+}
+
+.text-overlay p,
+.text-overlay h1 {
+    margin: 10px 0; /* Thêm khoảng cách giữa các phần tử */
+}
+.text-overlay a {
+    text-decoration: none;
+}
+.button-phone {
+    display:  inline-flex;
+    background-color: #f82004; /* Màu nền của nút */
+    color: #FFFFFF; /* Màu chữ trắng */
+    border: none;
+    text-align: center;
+    padding: 10px 10px; /* Khoảng cách giữa nội dung và viền */
+    border-radius: 20px; /* Bo góc nút */
+    font-size: 18px; /* Kích thước chữ */
+    cursor: pointer; /* Hiển thị con trỏ như bàn tay khi di chuột vào nút */
+    position: relative; /* Để sử dụng thuộc tính absolute cho icon */
+    overflow: hidden; /* Ẩn các phần tử ra ngoài */
+    transition: all 0.3s ease; /* Hiệu ứng chuyển tiếp cho màu nền */
+}
+
+.button-phone a {
+    text-decoration: none; /* Không gạch chân cho liên kết */
+    color: inherit; /* Thừa hưởng màu chữ từ nút */
+    display: flex; /* Sử dụng flexbox để căn giữa nội dung */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.button-phone i {
+    margin-left: 10px; /* Khoảng cách giữa văn bản và icon */
+    opacity: 0; /* Ẩn icon ban đầu */
+    transition: opacity 0.3s; /* Hiệu ứng chuyển tiếp cho opacity */
+}
+
+.button-phone:hover {
+    background-color: #880707; /* Màu nền khi di chuột */
+}
+
+.button-phone:hover i {
+    opacity: 1; /* Hiện icon khi di chuột */
+    transition: opacity 0.3s; /* Hiệu ứng chuyển tiếp cho opacity */
+}
+
+
+.button-phone:hover .button-text {
+    margin-right: 10px; /* Khoảng cách bên phải của văn bản khi hover */
+}
+.button-xem {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffcc00; /* Màu vàng nền */
+    color: #ffffff; /* Màu chữ trắng */
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button-xem:hover {
+    background-color: #ad8f16; /* Màu nền khi hover */
+   
+}
+
+.button-xem i {
+    margin-left: 5px; /* Khoảng cách giữa biểu tượng và chữ */
+}
+
+
+.center{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.boder {
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.boder::before,
+.boder::after {
+    content: "";
+    flex: 1;
+    border-top: 2px solid gray; /* Đường viền 2px màu đen, có thể thay đổi */
+    margin: 0 15px; /* Khoảng cách giữa chữ và đường viền */
+}
+
+.boder span {
+    font-size: 28px;
+    
+    color: #f99b1c; /* Màu của chữ */
+    
+}
+.slider {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+.post-item {
+    width: 300px;
+    margin: 10px;
+}
+.box-image {
+    overflow: hidden;
+    height: auto;
+}
+.image-cover img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.post-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.is-divider {
+    border-top: 1px solid #ccc;
+    margin: 10px 0;
+}
+/* CSS cho phần boder */
+.boder {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.car-card-con {
+    display: flex;
+    flex-wrap: wrap; /* Cho phép các phần tử gói lại khi không đủ chỗ */
+    justify-content: space-around; /* Căn đều khoảng cách giữa các phần tử */
+    gap: 20px; /* Khoảng cách giữa các thẻ */
+}
+
+.car-card {
+    width: calc(33.33% - 20px); /* Chia mỗi thẻ chiếm 1/3 hàng với khoảng cách giữa các thẻ */
+    margin-bottom: 20px; /* Khoảng cách dưới giữa các thẻ */
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    position: relative;
+    overflow: hidden;/* giữ hình ảnh phóng to bên trong khung */
+}
+.car-text-blue{
+    text-decoration: none;
+}
+
+.car-card img {
+    width: 100%; /* Hình ảnh chiếm toàn bộ chiều rộng thẻ */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.3s ease; /* hiệu ứng chuyển đổi mượt mà*/
+    position: relative;/* giữ hình ảnh phóng to bên trong khung */
+}
+
+/* Khi hover, thẻ sẽ phóng to nhẹ */
+ .car-card img:hover {
+    transform: scale(1.1);
+ }
+
+
+.car-card-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #f1c40f;
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.car-card-button:hover {
+    background-color: #d4ac0d;
+}
+.content-link a{
+    text-decoration: none; /* không gạch chận link*/
+    color: inherit; /* Giữ nguyên màu của chữ từ phần tử cha */
+}
+.content-link:hover{
+    color: #e0a80d;
+}
+.icon-why {
+    width: 70px; /* Đặt kích thước của biểu tượng */
+    height: 70px;
+    display: flex;
+    align-items: center;/* giữ cho ảnh nằm giũa boder*/
+    justify-content: center;/* giữ cho ảnh nằm giũa boder*/
+    border: 2px solid #FFD700; /* Viền màu vàng */
+    border-radius: 50%; /* Bo tròn thành hình tròn */
+    transition: border-color 0.3s, background-color 0.3s; /* Hiệu ứng mượt khi di chuột vào */
+  }
+  
+  .icon-why img {
+    width: 60%; /* Điều chỉnh kích thước ảnh bên trong */
+    height: 60%;
+  }
+  .icon-why:hover{
+    background-color: #FFD700;
+  }
+  .footer{
+    background: #000;
+    color: #fff;
+    padding: 30px 0;
+    font-size: 14px;
+  }
+  .footer-logo img{
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+   align-items: center; /* Căn giữa theo chiều dọc (nếu cần) */
+  }
+  .footer h4{
+    
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  .footer ul{
+    
+    padding: 0;
+  }
+  .footer ul li{
+    
+    margin-bottom: 10px;
+
+  }
+  .footer ul li a{
+    text-decoration: none; /* không gạch chận link*/
+
+  }
+  .footer ul li a:hover{
+    color: #FFD700;
+
+  }
+  .footer iframe {
+    border-radius: 8px; /* Tạo bo tròn nếu cần */
+    margin-top: 10px;
+}
+.footer-bottom {
+    border-top: 1px solid #333;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #FFD700;
+  }
+  
+
+ 
